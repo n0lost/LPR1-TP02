@@ -30,7 +30,7 @@ public class TP02Ex02 {
 
         System.out.println("O maior valor: " + maior);
         System.out.println("A soma dos valores: " + soma);
-        System.out.println("A média aritmética dos valores: " + media);
+        System.out.println("A media aritmetica dos valores: " + media);
     }
     
 }
