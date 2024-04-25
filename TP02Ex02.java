@@ -1,36 +1,42 @@
 //Gabriel Afonso dos Santos - CB3026167
 
-package exercicios;
 import java.util.Scanner;
 
-public class TP02Ex02 {
-
-    public static void ex02() {
-      
-
+public class Main {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        int[] valores = new int[10];
+        int soma = 0;
+        int maiorValor = Integer.MIN_VALUE;
 
-        double[] valores = new double[10];
-        double soma = 0;
-        double maior = Double.MIN_VALUE;
+        System.out.println("Digite dez valores positivos:");
 
         for (int i = 0; i < 10; i++) {
-            do {
-                System.out.println("Digite o valor " + (i + 1) + " (deve ser positivo):");
-                valores[i] = scanner.nextDouble();
-            } while (valores[i] < 0);
+            boolean valorValido = false;
 
-            soma += valores[i];
-            if (valores[i] > maior) {
-                maior = valores[i];
+            while (!valorValido) {
+                System.out.print("Valor " + (i + 1) + ": ");
+                int valor = scanner.nextInt();
+
+                if (valor > 0) {
+                    valores[i] = valor;
+                    soma += valor;
+                    if (valor > maiorValor) {
+                        maiorValor = valor;
+                    }
+                    valorValido = true;
+                } else {
+                    System.out.println("Erro: O valor deve ser positivo. Tente novamente.");
+                }
             }
         }
 
-        double media = soma / 10;
+        double media = (double) soma / 10;
 
-        System.out.println("O maior valor: " + maior);
-        System.out.println("A soma dos valores: " + soma);
-        System.out.println("A media aritmetica dos valores: " + media);
+        System.out.println("Maior valor: " + maiorValor);
+        System.out.println("Soma dos valores: " + soma);
+        System.out.println("Media aritmetica: " + media);
+
+        scanner.close();
     }
-    
 }
