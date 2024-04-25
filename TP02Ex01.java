@@ -1,22 +1,32 @@
 //Gabriel Afonso dos Santos - CB3026167
 
-package exercicios;
 import java.util.Scanner;
 
-public class TP02Ex01 {
-
-
-    public static void ex01() {
+public class Main {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Primeiro valor:");
-        double valor1 = scanner.nextDouble();
+        System.out.print("Insira o primeiro valor: ");
+        int primeiroValor = scanner.nextInt();
 
-        double valor2;
-        do {
-            System.out.println("Segundo valor (deve ser maior que o primeiro):");
-            valor2 = scanner.nextDouble();
-        } while (valor2 <= valor1);
+        int segundoValor = 0;
+        boolean isValido = false;
+
+        while (!isValido) {
+            System.out.print("Insira o segundo valor (deve ser maior que o primeiro): ");
+            segundoValor = scanner.nextInt();
+
+            if (segundoValor > primeiroValor) {
+                isValido = true;
+            } else {
+                System.out.println("Erro: O segundo valor deve ser maior que o primeiro. Tente novamente.");
+            }
+        }
+
+        System.out.println("Valores inseridos com sucesso.");
+        System.out.println("Primeiro valor: " + primeiroValor);
+        System.out.println("Segundo valor: " + segundoValor);
+
+        scanner.close();
     }
-    
 }
